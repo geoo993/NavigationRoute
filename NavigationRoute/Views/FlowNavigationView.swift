@@ -17,6 +17,7 @@ struct EmbeddedInNavigation: ViewModifier {
             FlowNavigationView {
                 content
             }
+            .navigationViewStyle(.stack)
         } else {
             content
         }

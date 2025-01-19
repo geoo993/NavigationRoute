@@ -7,8 +7,10 @@ public struct RouteFactory<T: Route, Screen: View>: View {
     @StateObject private var flow: Flow<T>
     @ViewBuilder let routeMap: (T) -> Screen
 
-    public init(_ flow: Flow<T>,
-                @ViewBuilder _ routeMap: @escaping (T) -> Screen) {
+    public init(
+        _ flow: Flow<T>,
+        @ViewBuilder _ routeMap: @escaping (T) -> Screen
+    ) {
         self._flow = StateObject(wrappedValue: flow)
         self.routeMap = routeMap
     }
@@ -17,7 +19,7 @@ public struct RouteFactory<T: Route, Screen: View>: View {
         contentView
             .introspect(
                 .navigationView(style: .stack),
-                on: .iOS(.v15, .v16, .v17),
+                on: .iOS(.v16, .v17, .v18),
                 scope: .ancestor,
                 customize: registerFlowEvents(nvc:)
             )
