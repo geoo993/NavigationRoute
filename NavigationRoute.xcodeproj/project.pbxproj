@@ -7,16 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA4930852CD3C6A200927636 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = AA4930842CD3C6A200927636 /* SwiftUIIntrospect */; };
+		C79921522D45EE5300E1278F /* Navigator in Frameworks */ = {isa = PBXBuildFile; productRef = C79921512D45EE5300E1278F /* Navigator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA49305B2CD3C4E600927636 /* NavigationRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C79921322D45EB6000E1278F /* Navigator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Navigator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C7299D4C2D46B9A900AD634E /* Exceptions for "NavigationRoute" folder in "NavigationRoute" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA49305A2CD3C4E600927636 /* NavigationRoute */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AA49305D2CD3C4E600927636 /* NavigationRoute */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C7299D4C2D46B9A900AD634E /* Exceptions for "NavigationRoute" folder in "NavigationRoute" target */,
+			);
 			path = NavigationRoute;
 			sourceTree = "<group>";
 		};
@@ -27,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA4930852CD3C6A200927636 /* SwiftUIIntrospect in Frameworks */,
+				C79921522D45EE5300E1278F /* Navigator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,7 +51,9 @@
 		AA4930522CD3C4E600927636 = {
 			isa = PBXGroup;
 			children = (
+				C79921322D45EB6000E1278F /* Navigator */,
 				AA49305D2CD3C4E600927636 /* NavigationRoute */,
+				C79921502D45EE5300E1278F /* Frameworks */,
 				AA49305C2CD3C4E600927636 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +64,13 @@
 				AA49305B2CD3C4E600927636 /* NavigationRoute.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C79921502D45EE5300E1278F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,7 +93,7 @@
 			);
 			name = NavigationRoute;
 			packageProductDependencies = (
-				AA4930842CD3C6A200927636 /* SwiftUIIntrospect */,
+				C79921512D45EE5300E1278F /* Navigator */,
 			);
 			productName = NavigationRoute;
 			productReference = AA49305B2CD3C4E600927636 /* NavigationRoute.app */;
@@ -101,7 +124,6 @@
 			mainGroup = AA4930522CD3C4E600927636;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AA4930832CD3C6A200927636 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AA49305C2CD3C4E600927636 /* Products */;
@@ -258,11 +280,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NavigationRoute/NavigationRoute.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NavigationRoute/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NavigationRoute/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -274,7 +298,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qrscann.NavigationRoute;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.NavigationRoute";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -291,11 +315,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NavigationRoute/NavigationRoute.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NavigationRoute/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NavigationRoute/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,7 +333,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qrscann.NavigationRoute;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.NavigationRoute";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -342,22 +368,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		AA4930832CD3C6A200927636 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/swiftui-introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		AA4930842CD3C6A200927636 /* SwiftUIIntrospect */ = {
+		C79921512D45EE5300E1278F /* Navigator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA4930832CD3C6A200927636 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
-			productName = SwiftUIIntrospect;
+			productName = Navigator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,9 +1,8 @@
 import SwiftUI
 import Navigator
 
-struct TealView: View {
-
-    @EnvironmentObject var flow: Flow<BlueRoute>
+struct GoldView: View {
+    @EnvironmentObject var flow: Flow<PinkRoute>
 
     var body: some View {
         contentView
@@ -11,13 +10,13 @@ struct TealView: View {
     
     private var contentView: some View {
         ZStack {
-            Color.teal
+            Color.gold
             VStack {
                 Spacer()
                 Button {
                     flow.popToRoot()
                 } label: {
-                    Text("Pop To Blue")
+                    Text("Pop to root")
                 }
                 .foregroundColor(.black)
                 Spacer()
@@ -25,7 +24,6 @@ struct TealView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Teal")
+        .navigationTitle("GOLD")
     }
 }
-

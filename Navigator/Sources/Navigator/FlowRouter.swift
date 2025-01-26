@@ -1,13 +1,13 @@
 import Foundation
 import SwiftUI
 
-public struct NavFlowRouter<T: Route, Screen: View>: View {
+public struct FlowRouter<T: Route, Screen: View>: View {
     
-    @StateObject private var flow: NavFlow<T>
+    @StateObject private var flow: Flow<T>
     @ViewBuilder let routeMap: (T) -> Screen
     
     public init(
-        _ flow: NavFlow<T>,
+        _ flow: Flow<T>,
         @ViewBuilder _ routeMap: @escaping (T) -> Screen
     ) {
         self._flow = StateObject(wrappedValue: flow)
@@ -15,21 +15,24 @@ public struct NavFlowRouter<T: Route, Screen: View>: View {
     }
     
     public var body: some View {
-        contentView
-    }
-    
-    private var contentView: some View {
-        NavigationStack(path: $flow.path) {
-            view(forRoute: flow.initialPath)
+        NavigationStack(path: $flow.routes) {
+            rootView
                 .navigationDestination(for: T.self) {
                     view(forRoute: $0)
                 }
         }
+        .present(flow: flow, content: view(forPresentable:))
     }
     
     @ViewBuilder
+    private var rootView: some View {
+        view(forRoute: flow.initialPath)
+    }
+
+    @ViewBuilder
     private func view(forPresentable presentable: Presentable<T>) -> some View {
         view(forRoute: presentable.route)
+            .presentationDetents(presentable.detents)
     }
     
     private func view(forRoute route: T) -> some View {

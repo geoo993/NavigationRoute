@@ -1,18 +1,20 @@
 import SwiftUI
+import Navigator
 
 enum YellowRoute: Route {
     case yellow
     case purple
+    case coral
 
     var id: Self { self }
 }
 
 struct YellowView: View {
     
-    @StateObject var flow = NavFlow<YellowRoute>(initial: .yellow, debug: true)
+    @StateObject var flow = Flow<YellowRoute>(initial: .yellow, debug: true)
 
     var body: some View {
-        NavFlowRouter(flow) {
+        FlowRouter(flow) {
             view(forScreen: $0)
         }
     }
@@ -24,6 +26,8 @@ struct YellowView: View {
             contentView
         case .purple:
             PurpleView()
+        case .coral:
+            CoralView()
         }
     }
 

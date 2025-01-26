@@ -1,19 +1,22 @@
 import SwiftUI
+import Navigator
 
 enum RedRoute: Route {
     case red
-    case cyan
+    case cyan(CyanModel)
+    case plum
     case orange
+    case pink
 
     var id: Self { self }
 }
 
 struct RedView: View {
 
-    @StateObject var flow = NavFlow<RedRoute>(initial: .red, debug: true)
+    @StateObject var flow = Flow<RedRoute>(initial: .red, debug: true)
 
     var body: some View {
-        NavFlowRouter(flow) {
+        FlowRouter(flow) {
             view(forScreen: $0)
         }
     }
@@ -23,10 +26,14 @@ struct RedView: View {
         switch route {
         case .red:
             contentView
-        case .cyan:
-            CyanView()
+        case .cyan(let model):
+            CyanView(model: model)
+        case .plum:
+            PlumView()
         case .orange:
             OrangeView()
+        case .pink:
+            PinkView()
         }
     }
 
@@ -36,9 +43,25 @@ struct RedView: View {
             VStack {
                 Spacer()
                 Button {
-                    flow.push(.cyan)
+                    flow.push(.cyan(.init(title: "CYAN", action: "Go to Plum")))
                 } label: {
                     Text("Go to Cyan")
+                }
+                .foregroundColor(.black)
+                Button {
+                    flow.present(.pink) {
+                        print("Finished dismissing Pink")
+                    }
+                } label: {
+                    Text("Go to Pink in sheet")
+                }
+                .foregroundColor(.black)
+                Button {
+                    flow.present(.pink, style: .fullScreenCover) {
+                        print("Finished dismissing Pink")
+                    }
+                } label: {
+                    Text("Go to Pink in full cover")
                 }
                 .foregroundColor(.black)
                 Spacer()

@@ -1,7 +1,14 @@
 import SwiftUI
+import Navigator
+
+struct CyanModel: Hashable {
+    let title: String
+    let action: String
+}
 
 struct CyanView: View {
-    @EnvironmentObject var flow: NavFlow<RedRoute>
+    @EnvironmentObject var flow: Flow<RedRoute>
+    let model: CyanModel
 
     var body: some View {
         contentView
@@ -13,9 +20,9 @@ struct CyanView: View {
             VStack {
                 Spacer()
                 Button {
-                    flow.push(.orange)
+                    flow.push(.plum)
                 } label: {
-                    Text("Go to Orange")
+                    Text(model.action)
                 }
                 .foregroundColor(.black)
                 Spacer()
@@ -23,7 +30,6 @@ struct CyanView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("CYAN")
+        .navigationTitle(model.title)
     }
 }
-

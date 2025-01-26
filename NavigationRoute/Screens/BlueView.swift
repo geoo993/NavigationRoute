@@ -1,4 +1,5 @@
 import SwiftUI
+import Navigator
 
 enum BlueRoute: Route {
     case blue
@@ -9,10 +10,10 @@ enum BlueRoute: Route {
 
 struct BlueView: View {
 
-    @StateObject var flow = NavFlow<BlueRoute>(initial: .blue, debug: true)
+    @StateObject var flow = Flow<BlueRoute>(initial: .blue, debug: true)
 
     var body: some View {
-        NavFlowRouter(flow) {
+        FlowRouter(flow) {
             view(forScreen: $0)
         }
     }

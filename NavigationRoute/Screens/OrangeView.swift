@@ -1,8 +1,9 @@
 import SwiftUI
+import Navigator
 
 struct OrangeView: View {
 
-    @EnvironmentObject var flow: NavFlow<RedRoute>
+    @EnvironmentObject var flow: Flow<RedRoute>
 
     var body: some View {
         contentView
@@ -14,10 +15,9 @@ struct OrangeView: View {
             VStack {
                 Spacer()
                 Button {
-                    flow.popToRoot()
-//                    flow.pop()
+                    flow.popTo(route: .cyan(.init(title: "CYAN", action: "Go to Plum")))
                 } label: {
-                    Text("POP TO Red")
+                    Text("POP To Cyan")
                 }
                 .foregroundColor(.black)
                 Spacer()

@@ -1,6 +1,7 @@
 import SwiftUI
+import Navigator
 
-enum TabItem: CaseIterable, Hashable, Identifiable {
+enum TabItem: String, CaseIterable, Hashable, Identifiable {
     case red
     case blue
     case green
@@ -38,6 +39,10 @@ enum TabItem: CaseIterable, Hashable, Identifiable {
 struct MainTabView: View {
     
     @State private var selection: TabItem = .red
+    
+    private var tabs: [TabItem] {
+        TabItem.allCases
+    }
 
     var body: some View {
         tabView
@@ -68,6 +73,7 @@ struct MainTabView: View {
                 print("Yellow selected")
             }
         }
+        .onOpenURL(perform: openURL(_:))
     }
 
     @ViewBuilder
@@ -84,48 +90,24 @@ struct MainTabView: View {
         }
     }
 
-    private var tabs: [TabItem] {
-        TabItem.allCases
+    private func openURL(_ url: URL) {
+        print("Link selected: \(url.absoluteString)")
+        guard url.scheme == "navigationroute" else {
+            return
+        }
+//        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+//            print("Invalid URL")
+//            return
+//        }
+
+        guard let path = url.pathComponents.last else {
+            print("Missing URL Path")
+            return
+        }
+        print("path found: \(path)")
+
+        if let tab = TabItem(rawValue: path) {
+            selection = tab
+        }
     }
 }
-
-//struct MasterView: View {
-//    
-//    @StateObject var flow = Flower<TabItem>(initial: .red, debug: true)
-//
-//    var body: some View {
-//        RouterFactory(flow) {
-//            view(forScreen: $0)
-//        }
-//    }
-//    
-//    @ViewBuilder
-//    private func view(forScreen route: TabItem) -> some View {
-//        switch route {
-//        case .red:
-//            contentView
-//        case .blue:
-//            BlueView()
-//        case .green:
-//            GreenView()
-//        case .yellow:
-//            YellowView()
-//        }
-//    }
-//    
-//    private var contentView: some View {
-//        VStack(spacing: 40) {
-//            Button("Go to Green") {
-//                flow.push(.green)
-//            }
-//            Button("Go to Blue") {
-//                flow.push(.blue)
-//            }
-//            Button("Go to Yellow") {
-//                flow.push(.yellow)
-//            }
-//        }
-//        .navigationTitle("Main View")
-//        .navigationBarTitleDisplayMode(.inline)
-//    }
-//}

@@ -1,8 +1,9 @@
 import SwiftUI
+import Navigator
 
 struct PurpleView: View {
     
-    @EnvironmentObject var flow: NavFlow<YellowRoute>
+    @EnvironmentObject var flow: Flow<YellowRoute>
 
     var body: some View {
         contentView
@@ -14,10 +15,9 @@ struct PurpleView: View {
             VStack {
                 Spacer()
                 Button {
-//                    flow.pop()
-                    flow.popToRoot()
+                    flow.present(.coral)
                 } label: {
-                    Text("Ending")
+                    Text("Present Coral")
                 }
                 .foregroundColor(.white)
                 Spacer()
