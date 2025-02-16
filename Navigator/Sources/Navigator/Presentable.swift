@@ -13,7 +13,7 @@ struct Presentable<T: Route>: Identifiable {
     var onDismiss: (() -> Void)?
 }
 
-struct PresentableSheet<T: Hashable, C: View>: ViewModifier {
+private struct PresentableSheet<T: Hashable, C: View>: ViewModifier {
     var flow: Flow<T>
     let view: (Presentable<T>) -> C
 
